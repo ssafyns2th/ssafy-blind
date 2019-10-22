@@ -1,5 +1,6 @@
 package com.ssafyns.blind.vo;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,7 +8,7 @@ import org.apache.ibatis.type.Alias;
 
 @Data
 @Builder
-@NoArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 @Alias("freeboard_comment")
 public class FreeboardCommentVo {
     private Long fbcommentNo;
