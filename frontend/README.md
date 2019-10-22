@@ -1,4 +1,4 @@
-# ssafyblind
+# frontend
 
 ## Project setup
 ```
