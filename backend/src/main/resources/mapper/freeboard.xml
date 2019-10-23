@@ -2,29 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafyns.blind.mapper.FreeboardMapper">
     <insert id="save">
-        INSERT INTO account(account_email, account_pw, edu_city, th, isleave, account_nick_id) VALUES (#{accountEmail}, #{accountPw}, #{eduCity}, #{th}, #{isleave}, #{nickId})
+        INSERT INTO freeboard(freeboard_title, freeboard_content, freeboard_date, freeboard_hits, freeboard_likes, freeboard_account_id) VALUES (#{freeboardTitle}, #{freeboardContent}, #{freeboardDate}, #{freeboardHits}, #{freeboardLikes}, #{freeboardAccountId})
     </insert>
 
-    <select id="selectByEmail" resultMap="accountMap">
+    <select id="findByTitle" resultMap="freeboardMap">
         select *
-        from account
-        where account_email = #{email}
+        from freeboard
+        where freeboard_title = #{freeboardTitle}
     </select>
 
-    <select id="selectById" resultMap="accountMap">
+    <select id="selectByAccountId" resultMap="freeboardMap">
         select *
-        from account
-        where account_id = #{id}
+        from freeboard
+        where freeboard_account_id = #{freeboardAccountId}
     </select>
 
-    <resultMap id="accountMap" type="account">
-        <id property="accountId" column="account_id"/>
-        <result property="accountEmail" column="account_email"/>
-        <result property="accountPw" column="account_pw"/>
-        <result property="eduCity" column="edu_city"/>
-        <result property="th" column="th"/>
-        <result property="nickId" column="account_nick_id"/>
-        <result property="isleave" column="isleave"/>
+    <resultMap id="freeboardMap" type="freeboard">
+        <id property="freeboardNo" column="freeboard_no"/>
+        <result property="freeboardTitle" column="freeboard_title"/>
+        <result property="freeboardContent" column="freeboard_content"/>
+        <result property="freeboardDate" column="freeboard_date"/>
+        <result property="freeboardHits" column="freeboard_hits"/>
+        <result property="freeboardLikes" column="freeboard_likes"/>
+        <result property="freeboardAccountId" column="freeboard_account_id"/>
     </resultMap>
 
 </mapper>

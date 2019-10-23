@@ -22,6 +22,5 @@ public class AccountService {
             //예외처리
             //accountExists.orElseThrow(RuntimeException::new);
         }
-
     }
 }
