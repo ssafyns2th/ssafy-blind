@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafyns.blind.mapper.FreeboardMapper">
+    <insert id="save">
+        INSERT INTO account(account_email, account_pw, edu_city, th, isleave, account_nick_id) VALUES (#{accountEmail}, #{accountPw}, #{eduCity}, #{th}, #{isleave}, #{nickId})
+    </insert>
+
+    <select id="selectByEmail" resultMap="accountMap">
+        select *
+        from account
+        where account_email = #{email}
+    </select>
+
+    <select id="selectById" resultMap="accountMap">
+        select *
+        from account
+        where account_id = #{id}
+    </select>
+
+    <resultMap id="accountMap" type="account">
+        <id property="accountId" column="account_id"/>
+        <result property="accountEmail" column="account_email"/>
+        <result property="accountPw" column="account_pw"/>
+        <result property="eduCity" column="edu_city"/>
+        <result property="th" column="th"/>
+        <result property="nickId" column="account_nick_id"/>
+        <result property="isleave" column="isleave"/>
+    </resultMap>
+
+</mapper>
