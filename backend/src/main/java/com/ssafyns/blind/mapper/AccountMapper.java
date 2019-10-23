@@ -13,4 +13,6 @@ public interface AccountMapper {
     AccountVo selectByEmail(String email);
 
     AccountVo selectById(Long id);
+
+    AccountVo selectByUsername(String username);
 }

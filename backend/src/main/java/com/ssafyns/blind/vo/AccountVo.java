@@ -13,6 +13,7 @@ import org.apache.ibatis.type.Alias;
 @Alias("account")
 public class AccountVo {
     private Long accountId;
+    private String accountUsername;
     private String accountEmail;
     private String accountPw;
     private String eduCity;
@@ -20,7 +21,8 @@ public class AccountVo {
     private int nickId;
     private int isleave;
 
-    public AccountVo(String accountEmail, String accountPw, String eduCity, int th, int nickId, int isleave) {
+    public AccountVo(String accountUsername, String accountEmail, String accountPw, String eduCity, int th, int nickId, int isleave) {
+        this.accountUsername = accountUsername;
         this.accountEmail = accountEmail;
         this.accountPw = accountPw;
         this.eduCity = eduCity;
