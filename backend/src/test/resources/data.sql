@@ -1,0 +1,1 @@
+INSERT INTO `nicktable` VALUES (1,'﻿값싼 ﻿가능충');
