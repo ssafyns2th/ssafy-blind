@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafyns.blind.mapper.FbCommentMapper">
+    <insert id="save">
+        INSERT INTO freeboard_comment(fbcomment_no, fbcomment_content, fbcomment_date, fbcomment_likes, fbcomment_freeboard_no, fbcomment_account_id) VALUES (#{fbcommentNo}, #{fbcommentContent}, #{fbcommentDate}, #{fbcommentLikes}, #{fbcommentFreeboardNo}, #{fbcommentAccountId})
+    </insert>
+
+    <resultMap id="fbCommentMap" type="freeboard_comment">
+        <id property="fbcommentNo" column="fbcomment_no"/>
+        <result property="fbcommentContent" column="fbcomment_content"/>
+        <result property="fbcommentDate" column="fbcomment_date"/>
+        <result property="fbcommentLikes" column="fbcomment_likes"/>
+        <result property="fbcommentFreeboardNo" column="fbcomment_freeboard_no"/>
+        <result property="fbcommentAccountId" column="fbcomment_account_id"/>
+    </resultMap>
+
+</mapper>

@@ -14,13 +14,7 @@ public class AccountService {
     }
 
     @Transactional
-    public void createAccount(AccountVo account){
-        AccountVo accountExists = accountMapper.selectByEmail(account.getAccountEmail());
-        if(accountExists == null){
-            accountMapper.save(account);
-        } else {
-            //예외처리
-            //accountExists.orElseThrow(RuntimeException::new);
-        }
+    public AccountVo findByUsername(String username){
+        return accountMapper.selectByUsername(username);
     }
 }

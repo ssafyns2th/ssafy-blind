@@ -16,15 +16,13 @@ public class FreeboardCommentVo {
     private String fbcommentDate;
     private int fbcommentLikes;
     private Long fbcommentFreeboardNo;
-    private Long fbcommentFreeboardAccountId;
     private Long fbcommentAccountId;
 
-    public FreeboardCommentVo(String fbcommentContent, String fbcommentDate, int fbcommentLikes, Long fbcommentFreeboardNo, Long fbcommentFreeboardAccountId, Long fbcommentAccountId) {
+    public FreeboardCommentVo(String fbcommentContent, String fbcommentDate, int fbcommentLikes, Long fbcommentFreeboardNo, Long fbcommentAccountId) {
         this.fbcommentContent = fbcommentContent;
         this.fbcommentDate = fbcommentDate;
         this.fbcommentLikes = fbcommentLikes;
         this.fbcommentFreeboardNo = fbcommentFreeboardNo;
-        this.fbcommentFreeboardAccountId = fbcommentFreeboardAccountId;
         this.fbcommentAccountId = fbcommentAccountId;
     }
 }

@@ -5,16 +5,37 @@
         INSERT INTO freeboard(freeboard_title, freeboard_content, freeboard_date, freeboard_hits, freeboard_likes, freeboard_account_id) VALUES (#{freeboardTitle}, #{freeboardContent}, #{freeboardDate}, #{freeboardHits}, #{freeboardLikes}, #{freeboardAccountId})
     </insert>
 
-    <select id="findByTitle" resultMap="freeboardMap">
+    <select id="findFreeboards" resultMap="freeboardMap">
         select *
         from freeboard
-        where freeboard_title = #{freeboardTitle}
     </select>
 
-    <select id="selectByAccountId" resultMap="freeboardMap">
+    <select id="findByBoardNo" parameterType="long" resultMap="freeboardMap">
         select *
         from freeboard
-        where freeboard_account_id = #{freeboardAccountId}
+        where freeboard_no = #{freeboardNo}
+    </select>
+
+    <update id="updateByBoardNo" parameterType="BoardDto">
+        update freeboard
+        set freeboard_title = #{freeboardTitle},
+            freeboard_content = #{freeboardContent},
+            freeboard_hits = #{freeboardHits},
+            freeboard_likes = #{freeboardLikes}
+        where freeboard_no = #{freeboardNo}
+    </update>
+
+    <delete id="deleteByBoardNo" parameterType="long">
+        delete
+        from freeboard
+        where freeboard_no = #{freeboardNo}
+    </delete>
+
+
+    <select id="findByTitle" parameterType="String" resultMap="freeboardMap">
+        select *
+        from freeboard
+        where freeboard_title like CONCAT('%',#{freeboardTitle},'%')
     </select>
 
     <resultMap id="freeboardMap" type="freeboard">

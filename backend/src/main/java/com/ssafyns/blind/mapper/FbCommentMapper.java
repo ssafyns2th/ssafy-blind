@@ -1,5 +1,6 @@
 package com.ssafyns.blind.mapper;
 
+import com.ssafyns.blind.vo.FreeboardCommentVo;
 import com.ssafyns.blind.vo.FreeboardVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -8,9 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FbCommentMapper {
 
-    void save(FreeboardVo freeboard);
-
-    FreeboardVo selectByTitle(String title);
-
-    FreeboardVo selectByAccountId(Long accountId);
+    void save(FreeboardCommentVo commentVo);
 }
