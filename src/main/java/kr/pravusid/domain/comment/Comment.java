@@ -13,7 +13,7 @@ public class Comment extends BaseEntity implements UserVerifiable {
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_comment_user"))
     private User user;
-
+ 
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_comment_board"))
     private Board board;

@@ -40,11 +40,6 @@
       <div class="row">
         <div class="input-field col s12">해시 코드 : {{hashCode}}</div>
       </div>
-      <a class="btn waves-effect waves-light" @click="isExist">
-        페이지 확인
-        <i class="material-icons right">send</i>
-      </a>
-
       <a class="btn waves-effect waves-light" @click="signup">
         회원가입
         <i class="material-icons right">send</i>
@@ -64,7 +59,8 @@ export default {
       password: "",
       confirmpassword: ""
     },
-    hashCode: 0
+    hashCode: 0,
+    flag: false
   }),
 
   created() {
@@ -73,11 +69,22 @@ export default {
 
   methods: {
     async signup() {
+      let check = this;
       try {
-        const res = await axios.post("/api/v1/user/signup", this.user);
-        notification.success(res, "가입성공", () => {
-          this.$router.push("/");
-        });
+        check.isExist();
+        // if (this.isExist() == true) {
+        // alert("signup 들어왔음");
+        if (check.flag) {
+          const res = await axios.post("/api/v1/user/signup", check.user);
+          notification.success(res, "가입성공", () => {
+            check.$router.push("/");
+          });
+        } else {
+          alert("인증이 되지 않았습니다.");
+        }
+        // } else {
+        // alert("해당 url을 찾을 수 없습니다.");
+        // }
       } catch (err) {
         err.response.data.errors.forEach(error => {
           this.$notify({
@@ -90,11 +97,11 @@ export default {
       }
     },
     async isExist() {
-      var temp = this.user.username;
-      var flag = false;
+      let check = this;
+      var temp = check.user.username;
       var xhr = new XMLHttpRequest();
-      var paramVal = this.hashCode;
-      console.log("hashCode = " + paramVal);
+      var paramVal = check.hashCode;
+      // console.log("hashCode = " + paramVal);
       var target = "https://lab.ssafy.com/api/v4/projects/";
       xhr.open("GET", target + "?search=" + paramVal);
       xhr.send();
@@ -109,25 +116,15 @@ export default {
                 .substr(22, loadedJSON[i].http_url_to_repo.length)
                 .split("/");
 
-              console.log("찾아 온 값 = " + info[0] + "  입력 된 값 = " + temp);
+              // console.log("찾아 온 값 = " + info[0] + "  입력 된 값 = " + temp);
               if (info[0] == temp) {
-                console.log("flag true");
-                flag = true;
+                console.log("인증완료");
+                check.flag = true;
               }
             }
-            if (flag) {
-              alert("매칭성공");
-            }
-          } else {
-            alert("fail to load");
           }
         }
       };
-
-      // var obj = JSON.parse(
-      //   "https://lab.ssafy.com/api/v4/projects/?search=210105626"
-      // );
-      // console.log(obj.id);
     },
     createHash() {
       var i, chr;
@@ -140,21 +137,13 @@ export default {
 
       for (i = 0; i < currentDateWithFormat.length; i++) {
         chr = currentDateWithFormat.charCodeAt(i);
-        this.hashCode = (this.hashCode << 5) - this.hashCode + chr;
+        this.hashCode = (this.hashCode << 12) - this.hashCode + chr;
         this.hashCode = this.hashCode & this.hashCode;
       }
       if (this.hashCode < 0) {
         this.hashCode *= -1;
       }
       console.log(this.hashCode);
-    },
-    hex2a(hex) {
-      var str = "";
-      for (var i = 0; i < hex.length; i += 2) {
-        var v = parseInt(hex.substr(i, 2), 16);
-        if (v) str += String.fromCharCode(v);
-      }
-      return str;
     }
   }
 };
