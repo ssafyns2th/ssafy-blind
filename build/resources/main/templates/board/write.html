@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="includes :: header"></head>
+
+<body>
+
+<div th:replace="includes :: navi"></div>
+
+<div class="container">
+  <div class="row">
+    <h1>게시물 작성</h1>
+  </div>
+  <form method="post" action="/board">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+    <div class="row">
+      <div class="input-field">
+        <i class="material-icons prefix">account_circle</i>
+        <input id="name" name="name" type="text" class="validate" th:value="${#authentication.principal.name}" disabled>
+        <label for="name">작성자</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="material-icons prefix">subject</i>
+        <input id="title" name="title" type="text" class="validate">
+        <label for="title">제목</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <textarea id="content" name="content"></textarea>
+      </div>
+    </div>
+    <div class="row center">
+      <button class="btn" type="submit">작성 완료</button>
+      <a class="btn grey" href="/board">취소</a>
+    </div>
+  </form>
+</div>
+
+<div th:replace="includes :: footer"></div>
+<script src="/js/trumbowyg.min.js"></script>
+<script type="text/javascript" src="/js/ko.min.js"></script>
+<script>
+  $('#content').trumbowyg({
+    lang: 'ko'
+  });
+
+</script>
+
+</body>
+</html>

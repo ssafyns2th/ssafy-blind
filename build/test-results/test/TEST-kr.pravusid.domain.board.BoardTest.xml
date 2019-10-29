@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="kr.pravusid.domain.board.BoardTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-10-28T01:48:08" hostname="DESKTOP-KVCQHCD" time="0.14">
+  <properties/>
+  <testcase name="동일회원의_게시물인지_확인한다" classname="kr.pravusid.domain.board.BoardTest" time="0.136"/>
+  <testcase name="조회수를_증가시킨다" classname="kr.pravusid.domain.board.BoardTest" time="0.002"/>
+  <testcase name="게시물_내용을_수정한다" classname="kr.pravusid.domain.board.BoardTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

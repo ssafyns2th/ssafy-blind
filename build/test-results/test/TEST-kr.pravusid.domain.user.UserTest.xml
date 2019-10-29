@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="kr.pravusid.domain.user.UserTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-10-28T01:48:11" hostname="DESKTOP-KVCQHCD" time="0.388">
+  <properties/>
+  <testcase name="평문_비밀번호를_입력하면_BCrypt_암호화_처리가_되어있다" classname="kr.pravusid.domain.user.UserTest" time="0.068"/>
+  <testcase name="회원_정보를_수정한다" classname="kr.pravusid.domain.user.UserTest" time="0.129"/>
+  <testcase name="동일회원인지_확인한다" classname="kr.pravusid.domain.user.UserTest" time="0.0"/>
+  <testcase name="생성하면_USER_권한을_획득한상태이다" classname="kr.pravusid.domain.user.UserTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

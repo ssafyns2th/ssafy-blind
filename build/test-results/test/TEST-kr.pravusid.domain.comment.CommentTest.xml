@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="kr.pravusid.domain.comment.CommentTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-10-28T01:48:11" hostname="DESKTOP-KVCQHCD" time="0.072">
+  <properties/>
+  <testcase name="댓글_Order를_설정한다" classname="kr.pravusid.domain.comment.CommentTest" time="0.0"/>
+  <testcase name="댓글_Order를_지정하지_않으면_1로_설정된다" classname="kr.pravusid.domain.comment.CommentTest" time="0.0"/>
+  <testcase name="상위_댓글을_초기화하면_Depth_1과_지정한_Order가_된다" classname="kr.pravusid.domain.comment.CommentTest" time="0.0"/>
+  <testcase name="동일회원의_댓글인지_확인한다" classname="kr.pravusid.domain.comment.CommentTest" time="0.072"/>
+  <testcase name="하위_댓글을_초기화하면_Depth_1추가_지정한_Order가_된다" classname="kr.pravusid.domain.comment.CommentTest" time="0.0"/>
+  <testcase name="댓글_내용을_수정한다" classname="kr.pravusid.domain.comment.CommentTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
