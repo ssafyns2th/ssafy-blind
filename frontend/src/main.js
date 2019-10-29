@@ -1,8 +1,18 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
 
-Vue.config.productionTip = false
+import './plugins';
 
-new Vue({
+import router from './router';
+import store from './store';
+import App from './App.vue';
+
+Vue.config.productionTip = false;
+
+/* eslint-disable no-new */
+const app = new Vue({
+  store,
+  router,
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');
+
+export default app;

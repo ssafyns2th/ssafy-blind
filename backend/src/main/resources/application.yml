@@ -1,0 +1,60 @@
+spring:
+  profiles.active: dev
+
+security:
+  oauth2:
+    resource:
+      filter-order: 3
+      jwt:
+        key-value:
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs1HLWx//4CM7PYYDdsE7
+          0Ji42U/JIjkI8jlRp+Urx4P0/I2bPVZePw9WNDjcen560fmBlqt4NNzsEhOqi1tv
+          25LvknTvNrUTl4L+u/jRY0kJpGcSBP/VtqdY0Yt6u+L/05VzMSLXr9PbhDw8nyhq
+          7M/Y0wv7VQiFmeV4zK5lsYN787ii3ctouAg/VWFT2V5ZP24MLBGjb3s7Ipi8Wngp
+          NIz/2umG/VYfnpZIy5cpqJLyLJKFJ02fTYsGcl6I23aQPpcsHhabEsjKUpF/ck4H
+          XrBmadVQz9vFWxQVkUwpbMt827Zzkf2VnqIyVzmXsuY9gfiQeWLtmRvpw8KAZcOR
+          jwIDAQAB
+          -----END PUBLIC KEY-----
+
+---
+
+spring:
+  profiles: dev
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:idpravus;MODE=MYSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    sql-script-encoding: UTF-8
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+
+logging:
+  config: classpath:logback-spring-debug.xml
+
+---
+
+spring:
+  profiles: production
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/dbname?autoReconnect=true&useUnicode=true&characterEncoding=utf8
+    username: user
+    password: pwd
+    initialize: false
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: none
+
+server:
+  port: 8000

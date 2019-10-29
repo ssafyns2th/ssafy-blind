@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <notifications group="noti" position="bottom center" />
+    <app-header></app-header>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import appHeader from './components/Header.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
-}
+    appHeader,
+  },
+};
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css');
+@import url('https://cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css');
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-size: 1em;
+  font-family: 'Nanum Square';
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.inline {
+  display: inline;
 }
 </style>
